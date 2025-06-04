@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnn7p7ysv3anf"]
+
+[ext_resource type="Texture2D" uid="uid://cym42y3watqy0" path="res://assets/images/placeholder/ichika_placeholder.png" id="1_ous2w"]
+[ext_resource type="Script" uid="uid://by734a6egd2g3" path="res://scenes/ichika.gd" id="1_svoky"]
+[ext_resource type="Script" uid="uid://8654kd7nmeuo" path="res://scenes/character_body_2d.gd" id="3_b6it1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_svoky"]
+radius = 30.0
+
+[node name="Ichika" type="CharacterBody2D"]
+script = ExtResource("1_svoky")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_svoky")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_ous2w")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("3_b6it1")
