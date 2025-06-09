@@ -1,23 +1,50 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3dkho2rr6a5v"]
+[gd_scene load_steps=5 format=3 uid="uid://c3dkho2rr6a5v"]
 
 [ext_resource type="PackedScene" uid="uid://cnn7p7ysv3anf" path="res://scenes/unit.tscn" id="1_0olea"]
 [ext_resource type="Script" uid="uid://c1gf2ahh6g233" path="res://scenes/unit_parade.gd" id="1_pjf2s"]
+[ext_resource type="Script" uid="uid://byv3t2at5iwxw" path="res://scenes/lead_point.gd" id="3_utan4"]
 
 [sub_resource type="Curve2D" id="Curve2D_lnu2h"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 0)
 }
 point_count = 2
 
 [node name="UnitParade" type="Node2D"]
 script = ExtResource("1_pjf2s")
 
-[node name="Units" type="Node2D" parent="."]
-
-[node name="Unit" parent="Units" instance=ExtResource("1_0olea")]
-
-[node name="Camera2D" type="Camera2D" parent="Units/Unit"]
-
 [node name="Path" type="Path2D" parent="."]
 position = Vector2(1, 0)
 curve = SubResource("Curve2D_lnu2h")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path"]
+position = Vector2(74.9985, 0)
+progress = 75.0
+rotates = false
+loop = false
+
+[node name="Unit" parent="Path/PathFollow2D" instance=ExtResource("1_0olea")]
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="Path"]
+position = Vector2(149.994, 0)
+progress = 150.0
+rotates = false
+loop = false
+
+[node name="Unit" parent="Path/PathFollow2D2" instance=ExtResource("1_0olea")]
+
+[node name="PathFollow2D3" type="PathFollow2D" parent="Path"]
+position = Vector2(225.179, 0)
+progress = 225.0
+rotates = false
+loop = false
+
+[node name="Unit" parent="Path/PathFollow2D3" instance=ExtResource("1_0olea")]
+
+[node name="Lead" type="Marker2D" parent="."]
+gizmo_extents = 35.0
+script = ExtResource("3_utan4")
+
+[node name="Unit" parent="Lead" instance=ExtResource("1_0olea")]
+
+[node name="Camera2D" type="Camera2D" parent="Lead"]
