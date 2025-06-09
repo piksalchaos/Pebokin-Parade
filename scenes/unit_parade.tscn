@@ -3,11 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://cnn7p7ysv3anf" path="res://scenes/unit.tscn" id="1_0olea"]
 [ext_resource type="Script" uid="uid://c1gf2ahh6g233" path="res://scenes/unit_parade.gd" id="1_pjf2s"]
 [ext_resource type="PackedScene" uid="uid://b1k1yqjo8imaa" path="res://scenes/follower.tscn" id="2_0lx0r"]
-[ext_resource type="Script" uid="uid://byv3t2at5iwxw" path="res://scenes/lead_point.gd" id="3_utan4"]
+[ext_resource type="Script" uid="uid://byv3t2at5iwxw" path="res://scenes/lead.gd" id="3_utan4"]
 
 [sub_resource type="Curve2D" id="Curve2D_lnu2h"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(-63.1149, 31.7379, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 2
 
@@ -19,7 +19,6 @@ position = Vector2(1, 0)
 curve = SubResource("Curve2D_lnu2h")
 
 [node name="Follower" parent="Path" instance=ExtResource("2_0lx0r")]
-position = Vector2(0, 0.179291)
 
 [node name="Lead" type="Marker2D" parent="."]
 gizmo_extents = 35.0
@@ -28,3 +27,4 @@ script = ExtResource("3_utan4")
 [node name="Unit" parent="Lead" instance=ExtResource("1_0olea")]
 
 [node name="Camera2D" type="Camera2D" parent="Lead"]
+position_smoothing_enabled = true
