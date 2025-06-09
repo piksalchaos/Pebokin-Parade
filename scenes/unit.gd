@@ -5,7 +5,6 @@ var last_global_position := global_position
 
 func _process(delta: float) -> void:
 	var velocity = (global_position - last_global_position) / delta
-	print(velocity)
 	
 	if velocity.x > 0:
 		sprite_2d.flip_h = false
