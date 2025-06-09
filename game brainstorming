@@ -1,0 +1,9 @@
+GAME CONCEPT
+
+- you play as the annoying dog within a limited square area
+- there is always another dog that is spawned in another part of the area. You can collect the dog and it will start following you, and then another dog will spawn in another random position.
+- YOu can collect a line of dogs like snake. Each dog represents one hp you have.
+- if you bump into one of your dogs, itll die.
+- your dogs can shoot bullets at the same time in the same direction, so the more dogs u have, the stronger you are.
+- enemies will appear from the sidelines. they will try to kill your dogs, but you can attack them back.
+- after a certain amount of rounds, bosses will appear

@@ -10,14 +10,23 @@ config_version=5
 
 [application]
 
-config/name="Ichika's Inkscapade"
-run/main_scene="uid://cnn7p7ysv3anf"
+run/main_scene="uid://cn8nhbabuan7q"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+
+[importer_defaults]
+
+animation_library={
+&"nodes/root_scale": 2.0
+}
 
 [input]
 
@@ -48,5 +57,7 @@ right={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

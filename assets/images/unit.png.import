@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cym42y3watqy0"
-path="res://.godot/imported/ichika_placeholder.png-30af5ba6bcda72ee08c610b1ca23bbab.ctex"
+uid="uid://dh88pjde4enkk"
+path="res://.godot/imported/unit.png-c9be501316fc858f104612bf4c53b5ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/placeholder/ichika_placeholder.png"
-dest_files=["res://.godot/imported/ichika_placeholder.png-30af5ba6bcda72ee08c610b1ca23bbab.ctex"]
+source_file="res://assets/images/unit.png"
+dest_files=["res://.godot/imported/unit.png-c9be501316fc858f104612bf4c53b5ec.ctex"]
 
 [params]
 
