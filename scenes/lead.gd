@@ -2,7 +2,7 @@ class_name Lead extends Marker2D
 
 const MAX_SPEED := 300.0
 const ACCELERATION := 1000.0
-const ROTATION_SPEED := 7.0
+const ROTATION_SPEED := 6.0
 
 @export var follower_path: Path2D
 var velocity := Vector2.ZERO
