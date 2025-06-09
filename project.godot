@@ -10,6 +10,7 @@ config_version=5
 
 [application]
 
+config/name="Pebokin Parade"
 run/main_scene="uid://cn8nhbabuan7q"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
