@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3dkho2rr6a5v"]
+
+[ext_resource type="PackedScene" uid="uid://cnn7p7ysv3anf" path="res://scenes/unit.tscn" id="1_0olea"]
+[ext_resource type="Script" uid="uid://c1gf2ahh6g233" path="res://scenes/unit_parade.gd" id="1_pjf2s"]
+
+[sub_resource type="Curve2D" id="Curve2D_lnu2h"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 2
+
+[node name="UnitParade" type="Node2D"]
+script = ExtResource("1_pjf2s")
+
+[node name="Units" type="Node2D" parent="."]
+
+[node name="Unit" parent="Units" instance=ExtResource("1_0olea")]
+
+[node name="Camera2D" type="Camera2D" parent="Units/Unit"]
+
+[node name="Path" type="Path2D" parent="."]
+position = Vector2(1, 0)
+curve = SubResource("Curve2D_lnu2h")
