@@ -4,10 +4,10 @@ const MAX_SPEED := 300.0
 const ACCELERATION := 1000.0
 const ROTATION_SPEED := 7.0
 
+@export var follower_path: Path2D
 var velocity := Vector2.ZERO
 var direction := Vector2.RIGHT
 var speed := 0.0
-var is_turning_sharply := false
 
 func _process(delta: float) -> void:
 	var input_direction = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down"))
@@ -17,6 +17,13 @@ func _process(delta: float) -> void:
 		direction = direction.rotated(move_toward(0, angle_to_target, ROTATION_SPEED * delta))
 	speed = move_toward(speed, target_direction.length() * MAX_SPEED, ACCELERATION * delta)
 	
-	velocity.x = direction.x * speed
-	velocity.y = direction.y * speed
+	if is_alone():
+		velocity = target_direction * speed
+	else:
+		velocity = direction * speed
 	position += velocity * delta
+
+func is_alone():
+	if not follower_path:
+		return true
+	return follower_path.get_child_count() == 0
