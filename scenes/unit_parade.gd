@@ -31,6 +31,7 @@ func _on_lead_unit_entered_danger_area() -> void:
 func set_next_unit_as_lead() -> void:
 	var next_follower = path.get_child(0)
 	lead.position = next_follower.position
+	lead.direction = (next_follower.position - path.curve.get_point_position(2)).normalized()
 	path.curve.remove_point(0)
 	
 	if next_follower.get_child_count() == 0: return
@@ -38,7 +39,7 @@ func set_next_unit_as_lead() -> void:
 	next_unit.reparent(lead)
 	next_unit.position = Vector2.ZERO
 	next_unit.danger_area_entered.connect(_on_lead_unit_entered_danger_area)
-	next_follower.queue_free()
+	next_follower.queue_free()	
 
 func add_new_follower() -> void:
 	var follower = FOLLOWER.instantiate()
