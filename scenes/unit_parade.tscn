@@ -23,3 +23,5 @@ follower_path = NodePath("../Path")
 
 [node name="Camera2D" type="Camera2D" parent="Lead"]
 position_smoothing_enabled = true
+
+[connection signal="child_order_changed" from="Path" to="." method="_on_path_child_order_changed"]
