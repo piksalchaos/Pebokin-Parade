@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://l51dn7umm8ap"]
+[gd_scene load_steps=4 format=3 uid="uid://l51dn7umm8ap"]
 
 [ext_resource type="Texture2D" uid="uid://d1ondfxm8qncw" path="res://assets/images/stage.png" id="1_8rem4"]
+[ext_resource type="PackedScene" uid="uid://wfltkrjulywa" path="res://scenes/danger_area.tscn" id="3_kewym"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8rem4"]
 size = Vector2(1228.8, 32)
 
 [node name="Stage" type="StaticBody2D"]
+scale = Vector2(0.5, 0.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
@@ -25,6 +27,26 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_8rem4")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(630.4, 0)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_8rem4")
+
+[node name="DangerArea" parent="." instance=ExtResource("3_kewym")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DangerArea"]
+position = Vector2(0, -630.4)
+shape = SubResource("RectangleShape2D_8rem4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DangerArea"]
+position = Vector2(0, 630.4)
+shape = SubResource("RectangleShape2D_8rem4")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="DangerArea"]
+position = Vector2(-630.4, 0)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_8rem4")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="DangerArea"]
 position = Vector2(630.4, 0)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_8rem4")

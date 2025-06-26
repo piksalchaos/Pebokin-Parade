@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://wfltkrjulywa"]
+
+[ext_resource type="Script" uid="uid://b5rhtmn37i1yx" path="res://scenes/danger_area.gd" id="1_vwlhv"]
+
+[node name="DangerArea" type="Area2D"]
+script = ExtResource("1_vwlhv")
