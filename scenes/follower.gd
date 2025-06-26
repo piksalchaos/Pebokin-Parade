@@ -1,6 +1,6 @@
 class_name Follower extends PathFollow2D
 
-const DISTANCE_FROM_OTHERS := 55.0
+const DISTANCE_FROM_OTHERS := 35.0
 func _ready() -> void:
 	update_progress()
 

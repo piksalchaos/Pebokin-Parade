@@ -2,7 +2,7 @@ class_name UnitParade extends Node2D
 
 const UNIT = preload("res://scenes/unit.tscn")
 const FOLLOWER = preload("res://scenes/follower.tscn")
-const PATH_POINT_DISTANCE := 75.0
+const PATH_POINT_DISTANCE := 30.0
 
 @onready var path: Path2D = $Path
 @onready var lead: Lead = $Lead
