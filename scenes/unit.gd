@@ -18,3 +18,8 @@ func _process(delta: float) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area is DangerArea:
 		danger_area_entered.emit()
+		return
+	if area is Unit:
+		var area_parent = area.get_parent()
+		if get_parent() is Lead and area_parent is Follower and area_parent.get_index() > 0:
+			danger_area_entered.emit()

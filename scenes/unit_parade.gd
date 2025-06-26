@@ -33,6 +33,7 @@ func set_next_unit_as_lead() -> void:
 	lead.position = next_follower.position
 	path.curve.remove_point(0)
 	
+	if next_follower.get_child_count() == 0: return
 	var next_unit: Unit = next_follower.get_child(0)
 	next_unit.reparent(lead)
 	next_unit.position = Vector2.ZERO
