@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5qni41p8gxb5"]
+
+[ext_resource type="Script" uid="uid://c4s06moobjuqd" path="res://scenes/captured_unit_spawner.gd" id="1_3c6up"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lbhrr"]
+radius = 60.0
+
+[node name="CapturedUnitSpawner" type="Node2D"]
+script = ExtResource("1_3c6up")
+
+[node name="QueryArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="QueryArea"]
+shape = SubResource("CircleShape2D_lbhrr")
+
+[node name="RetrySpawnTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="RetrySpawnTimer" to="." method="_on_retry_spawn_timer_timeout"]
