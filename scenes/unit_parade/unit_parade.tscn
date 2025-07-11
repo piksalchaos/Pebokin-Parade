@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c3dkho2rr6a5v"]
 
-[ext_resource type="Script" uid="uid://c1gf2ahh6g233" path="res://scenes/unit_parade.gd" id="1_pjf2s"]
-[ext_resource type="Script" uid="uid://byv3t2at5iwxw" path="res://scenes/lead.gd" id="3_utan4"]
+[ext_resource type="Script" uid="uid://c1gf2ahh6g233" path="res://scenes/unit_parade/unit_parade.gd" id="1_pjf2s"]
+[ext_resource type="Script" uid="uid://byv3t2at5iwxw" path="res://scenes/unit_parade/lead.gd" id="3_utan4"]
 
 [sub_resource type="Curve2D" id="Curve2D_lnu2h"]
 _data = {

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b1k1yqjo8imaa"]
 
-[ext_resource type="Script" uid="uid://bd3gs6peykg44" path="res://scenes/follower.gd" id="1_3sxqj"]
+[ext_resource type="Script" uid="uid://bd3gs6peykg44" path="res://scenes/unit_parade/follower.gd" id="1_3sxqj"]
 
 [node name="Follower" type="PathFollow2D"]
 rotates = false

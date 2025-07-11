@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://l51dn7umm8ap"]
 
 [ext_resource type="Texture2D" uid="uid://d1ondfxm8qncw" path="res://assets/images/stage.png" id="1_8rem4"]
-[ext_resource type="PackedScene" uid="uid://wfltkrjulywa" path="res://scenes/danger_area.tscn" id="3_kewym"]
+[ext_resource type="PackedScene" uid="uid://wfltkrjulywa" path="res://scenes/components/danger_area.tscn" id="3_kewym"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8rem4"]
 size = Vector2(1228.8, 32)
