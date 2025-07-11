@@ -1,6 +1,6 @@
 extends Node2D
 
-const CAPTURED_UNIT = preload("res://scenes/captured_unit.tscn")
+const CAPTURED_UNIT = preload("res://scenes/captured_unit_spawner/captured_unit.tscn")
 @onready var unit_parade: UnitParade = $UnitParade
 @onready var captured_unit_spawner: CapturedUnitSpawner = $CapturedUnitSpawner
 
