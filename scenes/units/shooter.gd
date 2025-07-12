@@ -3,7 +3,7 @@ extends Area2D
 const SHOOTER_BULLET = preload("res://scenes/units/shooter_bullet.tscn")
 @onready var shoot_timer: Timer = $ShootTimer
 
-func _on_shoot_timer_timeout() -> void:
+func attempt_shoot():
 	var closest_enemy_distance = INF
 	var closest_enemy_position: Vector2
 	for body in get_overlapping_bodies():
@@ -20,9 +20,13 @@ func _on_shoot_timer_timeout() -> void:
 		bullet.position = global_position
 		Global.projectile_container.add_child(bullet)
 
+func _on_shoot_timer_timeout() -> void:
+	attempt_shoot()
 
 func _on_body_entered(body: Node2D) -> void:
-	shoot_timer.start()
+	if shoot_timer.is_stopped():
+		attempt_shoot()
+		shoot_timer.start()
 
 func _on_body_exited(body: Node2D) -> void:
 	if get_overlapping_bodies().size() == 0:
