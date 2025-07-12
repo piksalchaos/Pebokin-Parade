@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name BasicEnemy extends CharacterBody2D
 
 const SPEED := 60.0
 var closest_unit: Unit
@@ -30,3 +30,6 @@ func _on_new_closest_unit_timer_timeout() -> void:
 func _on_danger_area_area_entered(area: Area2D) -> void:
 	if area is Unit:
 		queue_free()
+
+func _on_hit_component_hit() -> void:
+	queue_free()

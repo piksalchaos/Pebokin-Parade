@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv3dvsx1v3k0k"]
+
+[ext_resource type="Script" uid="uid://de6k32d48q104" path="res://scenes/units/shooter.gd" id="1_x1nhc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fx0lf"]
+radius = 150.0
+
+[node name="Shooter" type="Area2D"]
+script = ExtResource("1_x1nhc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fx0lf")
+
+[node name="ShootTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

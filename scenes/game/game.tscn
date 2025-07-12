@@ -17,7 +17,15 @@ script = ExtResource("1_lbhrr")
 
 [node name="CapturedUnitSpawner" parent="." instance=ExtResource("4_lbhrr")]
 
+[node name="ProjectileContainer" type="Node" parent="."]
+
 [node name="BasicEnemy" parent="." instance=ExtResource("5_lfrn8")]
 position = Vector2(132, 145)
+
+[node name="BasicEnemy2" parent="." instance=ExtResource("5_lfrn8")]
+position = Vector2(-101, -173)
+
+[node name="BasicEnemy3" parent="." instance=ExtResource("5_lfrn8")]
+position = Vector2(-132, 119)
 
 [connection signal="child_entered_tree" from="CapturedUnitSpawner" to="." method="_on_captured_unit_spawner_child_entered_tree"]
