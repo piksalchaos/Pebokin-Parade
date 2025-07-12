@@ -6,6 +6,8 @@ const DISTANCE_FROM_OTHERS := 35.0
 
 func set_unit(value: Unit):
 	unit = value
+	unit.position = global_position
+	print(position)
 	unit.tree_exiting.connect(_on_unit_tree_exiting)
 
 func _ready() -> void:

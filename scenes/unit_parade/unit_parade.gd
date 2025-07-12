@@ -22,6 +22,7 @@ func add_new_lead_unit() -> void:
 	var unit := UNIT.instantiate()
 	unit.tree_exiting.connect(_on_lead_unit_tree_exiting)
 	lead.unit = unit
+	
 	unit_container.add_child(unit)
 
 func _on_lead_unit_tree_exiting() -> void:
@@ -41,11 +42,11 @@ func set_next_unit_as_lead() -> void:
 
 func add_new_follower() -> void:
 	var follower = FOLLOWER.instantiate()
+	path.add_child(follower)
+	
 	var unit = UNIT.instantiate()
 	follower.unit = unit
-	
 	unit_container.add_child(unit)
-	path.add_child(follower)
 	
 func _on_captured_unit_collected() -> void:
 	call_deferred("add_new_follower")

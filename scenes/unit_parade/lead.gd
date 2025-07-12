@@ -13,6 +13,7 @@ var speed := 0.0
 
 func set_unit(value):
 	unit = value
+	unit.position = global_position
 	unit.entered_unit.connect(_on_unit_entered_other_unit)
 
 func _process(delta: float) -> void:
