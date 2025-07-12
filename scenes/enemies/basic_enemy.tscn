@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhxb67bmk80a0"]
+
+[ext_resource type="PackedScene" uid="uid://wfltkrjulywa" path="res://scenes/components/danger_area.tscn" id="1_7jpia"]
+[ext_resource type="Script" uid="uid://bfbvdbavsh2lf" path="res://scenes/enemies/basic_enemy.gd" id="1_ibjif"]
+[ext_resource type="Texture2D" uid="uid://df6boxweigvvy" path="res://assets/images/basic_enemy.png" id="2_8xi43"]
+[ext_resource type="PackedScene" uid="uid://dqtfiih5jw45o" path="res://scenes/components/hit_component.tscn" id="4_4mpuu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ibjif"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8xi43"]
+
+[node name="BasicEnemy" type="CharacterBody2D" groups=["enemies"]]
+script = ExtResource("1_ibjif")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.924, 0)
+scale = Vector2(0.187, 0.187)
+texture = ExtResource("2_8xi43")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ibjif")
+
+[node name="NewClosestUnitTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="DangerArea" parent="." instance=ExtResource("1_7jpia")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DangerArea"]
+shape = SubResource("CircleShape2D_8xi43")
+
+[node name="HitComponent" parent="." instance=ExtResource("4_4mpuu")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitComponent"]
+shape = SubResource("CircleShape2D_ibjif")
+
+[connection signal="timeout" from="NewClosestUnitTimer" to="." method="_on_new_closest_unit_timer_timeout"]
+[connection signal="area_entered" from="DangerArea" to="." method="_on_danger_area_area_entered"]
+[connection signal="hit" from="HitComponent" to="." method="_on_hit_component_hit"]

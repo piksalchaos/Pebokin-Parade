@@ -1,11 +1,12 @@
 class_name UnitParade extends Node2D
 
-const UNIT = preload("res://scenes/unit.tscn")
-const FOLLOWER = preload("res://scenes/follower.tscn")
+const UNIT = preload("res://scenes/units/shooter_unit.tscn")
+const FOLLOWER = preload("res://scenes/unit_parade/follower.tscn")
 const PATH_POINT_DISTANCE := 30.0
 
 @onready var path: Path2D = $Path
 @onready var lead: Lead = $Lead
+@onready var unit_container: Node = $UnitContainer
 
 func _ready() -> void:
 	add_new_lead_unit()
@@ -19,35 +20,34 @@ func _process(_delta: float) -> void:
 
 func add_new_lead_unit() -> void:
 	var unit := UNIT.instantiate()
-	unit.danger_area_entered.connect(_on_lead_unit_entered_danger_area)
-	lead.add_child(unit)
+	unit.tree_exiting.connect(_on_lead_unit_tree_exiting)
+	lead.unit = unit
+	
+	unit_container.add_child(unit)
 
-func _on_lead_unit_entered_danger_area() -> void:
-	var lead_unit = lead.get_child(-1)
-	lead_unit.queue_free()
+func _on_lead_unit_tree_exiting() -> void:
 	if path.get_child_count() >= 1:
 		call_deferred("set_next_unit_as_lead")
-
+	
 func set_next_unit_as_lead() -> void:
 	var next_follower = path.get_child(0)
 	lead.position = next_follower.position
 	lead.direction = (next_follower.position - path.curve.get_point_position(2)).normalized()
 	path.curve.remove_point(0)
 	
-	if next_follower.get_child_count() == 0: return
-	var next_unit: Unit = next_follower.get_child(0)
-	next_unit.reparent(lead)
-	next_unit.position = Vector2.ZERO
-	next_unit.danger_area_entered.connect(_on_lead_unit_entered_danger_area)
-	next_follower.queue_free()	
+	var next_unit: Unit = next_follower.unit
+	lead.unit = next_unit
+	next_unit.tree_exited.connect(_on_lead_unit_tree_exiting)
+	next_follower.free()
 
 func add_new_follower() -> void:
 	var follower = FOLLOWER.instantiate()
-	var unit = UNIT.instantiate()
-	
-	follower.add_child(unit)
 	path.add_child(follower)
-
+	
+	var unit = UNIT.instantiate()
+	follower.unit = unit
+	unit_container.add_child(unit)
+	
 func _on_captured_unit_collected() -> void:
 	call_deferred("add_new_follower")
 

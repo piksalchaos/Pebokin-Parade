@@ -1,6 +1,6 @@
 class_name CapturedUnitSpawner extends Node2D
 
-const CAPTURED_UNIT = preload("res://scenes/captured_unit.tscn")
+const CAPTURED_UNIT = preload("res://scenes/captured_unit_spawner/captured_unit.tscn")
 const MAX_SPAWN_ATTEMPT_COUNT = 30
 
 @export var spawn_area_bounds: Vector2 = Vector2(500, 500)

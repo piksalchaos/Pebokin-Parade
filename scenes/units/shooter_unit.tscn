@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2e4r12rxc27h"]
+
+[ext_resource type="PackedScene" uid="uid://cnn7p7ysv3anf" path="res://scenes/units/unit.tscn" id="1_wkk6w"]
+[ext_resource type="PackedScene" uid="uid://cv3dvsx1v3k0k" path="res://scenes/units/shooter.tscn" id="2_fx0lf"]
+
+[node name="ShooterUnit" instance=ExtResource("1_wkk6w")]
+
+[node name="Shooter" parent="." index="2" instance=ExtResource("2_fx0lf")]

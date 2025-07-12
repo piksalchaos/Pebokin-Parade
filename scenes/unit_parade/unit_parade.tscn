@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c3dkho2rr6a5v"]
 
-[ext_resource type="Script" uid="uid://c1gf2ahh6g233" path="res://scenes/unit_parade.gd" id="1_pjf2s"]
-[ext_resource type="Script" uid="uid://byv3t2at5iwxw" path="res://scenes/lead.gd" id="3_utan4"]
+[ext_resource type="Script" uid="uid://c1gf2ahh6g233" path="res://scenes/unit_parade/unit_parade.gd" id="1_pjf2s"]
+[ext_resource type="PackedScene" uid="uid://dgf2ybe2yyfqf" path="res://scenes/unit_parade/lead.tscn" id="2_eaitb"]
 
 [sub_resource type="Curve2D" id="Curve2D_lnu2h"]
 _data = {
@@ -16,13 +16,9 @@ script = ExtResource("1_pjf2s")
 position = Vector2(1, 0)
 curve = SubResource("Curve2D_lnu2h")
 
-[node name="Lead" type="Marker2D" parent="." node_paths=PackedStringArray("follower_path")]
-gizmo_extents = 35.0
-script = ExtResource("3_utan4")
+[node name="Lead" parent="." node_paths=PackedStringArray("follower_path") instance=ExtResource("2_eaitb")]
 follower_path = NodePath("../Path")
 
-[node name="Camera2D" type="Camera2D" parent="Lead"]
-enabled = false
-position_smoothing_enabled = true
+[node name="UnitContainer" type="Node" parent="."]
 
 [connection signal="child_order_changed" from="Path" to="." method="_on_path_child_order_changed"]
