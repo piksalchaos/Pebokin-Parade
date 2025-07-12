@@ -5,11 +5,15 @@ const ACCELERATION := 1000.0
 const ROTATION_SPEED := 9.0
 
 @export var follower_path: Path2D
-@export var unit: Unit
+@export var unit: Unit: set = set_unit
 
 var velocity := Vector2.ZERO
 var direction := Vector2.RIGHT
 var speed := 0.0
+
+func set_unit(value):
+	unit = value
+	unit.entered_unit.connect(_on_unit_entered_other_unit)
 
 func _process(delta: float) -> void:
 	var input_direction = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down"))
@@ -31,3 +35,9 @@ func is_alone():
 	if not follower_path:
 		return true
 	return follower_path.get_child_count() == 0
+
+func _on_unit_entered_other_unit(other_unit: Unit):
+	for follower: Follower in follower_path.get_children():
+		if follower.unit == other_unit:
+			unit.queue_free()
+			return

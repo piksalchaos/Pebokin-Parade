@@ -53,9 +53,3 @@ func _on_captured_unit_collected() -> void:
 func _on_path_child_order_changed() -> void:
 	for follower: Follower in path.get_children():
 		follower.update_progress()
-
-func get_unit_following_node2d(node2d: Node2D) -> Node2D:
-	for unit: Unit in unit_container.get_children():
-		if unit.node2d_to_follow == node2d:
-			return unit
-	return null

@@ -14,39 +14,39 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_8rem4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -630.4)
+position = Vector2(0, -616.4)
 shape = SubResource("RectangleShape2D_8rem4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(0, 630.4)
+position = Vector2(0, 616.4)
 shape = SubResource("RectangleShape2D_8rem4")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(-630.4, 0)
+position = Vector2(-616.4, 0)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_8rem4")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
-position = Vector2(630.4, 0)
+position = Vector2(616.4, 0)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_8rem4")
 
 [node name="DangerArea" parent="." instance=ExtResource("3_kewym")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DangerArea"]
-position = Vector2(0, -630.4)
+position = Vector2(0, -616.4)
 shape = SubResource("RectangleShape2D_8rem4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="DangerArea"]
-position = Vector2(0, 630.4)
+position = Vector2(0, 616.4)
 shape = SubResource("RectangleShape2D_8rem4")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="DangerArea"]
-position = Vector2(-630.4, 0)
+position = Vector2(-616.4, 0)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_8rem4")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="DangerArea"]
-position = Vector2(630.4, 0)
+position = Vector2(616.4, 0)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_8rem4")
