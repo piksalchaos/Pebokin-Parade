@@ -27,4 +27,5 @@ shape = SubResource("CircleShape2D_ibjif")
 [node name="NewClosestUnitTimer" type="Timer" parent="."]
 autostart = true
 
+[connection signal="area_entered" from="DangerArea" to="." method="_on_danger_area_area_entered"]
 [connection signal="timeout" from="NewClosestUnitTimer" to="." method="_on_new_closest_unit_timer_timeout"]

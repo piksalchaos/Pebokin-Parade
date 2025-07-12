@@ -5,6 +5,8 @@ const ACCELERATION := 1000.0
 const ROTATION_SPEED := 9.0
 
 @export var follower_path: Path2D
+@export var unit: Unit
+
 var velocity := Vector2.ZERO
 var direction := Vector2.RIGHT
 var speed := 0.0
@@ -22,6 +24,8 @@ func _process(delta: float) -> void:
 	else:
 		velocity = direction * speed
 	position += velocity * delta
+	if unit:
+		unit.position_to_follow = global_position
 
 func is_alone():
 	if not follower_path:

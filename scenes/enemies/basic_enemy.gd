@@ -15,16 +15,18 @@ func _physics_process(_delta: float) -> void:
 
 func get_closest_unit() -> Unit:
 	var units := get_tree().get_nodes_in_group("units")
-	print(units.size())
 	var closest_unit_distance = INF
-	var closest_unit
+	var current_closest_unit
 	for unit in units:
 		var unit_distance = global_position.distance_squared_to(unit.global_position)
-		print(unit_distance)
 		if unit_distance < closest_unit_distance:
 			closest_unit_distance = unit_distance
-			closest_unit = unit
-	return closest_unit
+			current_closest_unit = unit
+	return current_closest_unit
 
 func _on_new_closest_unit_timer_timeout() -> void:
 	closest_unit = get_closest_unit()
+
+func _on_danger_area_area_entered(area: Area2D) -> void:
+	if area is Unit:
+		queue_free()

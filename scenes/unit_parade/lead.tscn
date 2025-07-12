@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgf2ybe2yyfqf"]
+
+[ext_resource type="Script" uid="uid://byv3t2at5iwxw" path="res://scenes/unit_parade/lead.gd" id="1_mmiwr"]
+
+[node name="Lead" type="Marker2D"]
+gizmo_extents = 35.0
+script = ExtResource("1_mmiwr")
